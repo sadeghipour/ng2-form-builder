@@ -1,0 +1,25 @@
+<div [formGroup]="myForm" *ngIf="radioModel?.isRequired==true" class="formBuilder-radio">
+    <p>{{radioModel?.title}}</p>
+    <p>{{radioModel?.description}}</p>
+    <p *ngFor="let item of radioModel?.options">
+        <input type="radio"
+               formControlName="{{radioModel?.controllerName}}"
+               value="{{item?.value}}"
+               required
+               [checked]="item.selected==true"
+               name="{{radioModel?.controllerName}}"
+               (change)="onChange(item)">
+        {{item?.value}}
+    </p>
+</div>
+
+<div [formGroup]="myForm" *ngIf="radioModel?.isRequired==false" class="formBuilder-radio">
+    <p>{{radioModel?.title}}</p>
+    <p>{{radioModel?.description}}</p>
+    <p *ngFor="let item of radioModel?.options">
+        <input type="radio"
+               name="{{radioModel?.title}}"
+               (change)="onChange(item)"
+               [checked]="item.selected==true"
+        > {{item?.value}} ngModel</p>
+</div>

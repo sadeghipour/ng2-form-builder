@@ -1,0 +1,17 @@
+<div [formGroup]="myForm" *ngIf="selectBoxModel?.isRequired==true" class="formBuilder-select">
+    <p>{{selectBoxModel?.title}}</p>
+    <p>{{selectBoxModel?.description}}</p>
+    <select formControlName="{{selectBoxModel?.controllerName}}" [required]="selectBoxModel.isRequired">
+        <option *ngFor="let item of selectBoxModel?.options" value="{{item.key}}">{{item.value}}</option>
+    </select>
+</div>
+
+
+
+<div [formGroup]="myForm" *ngIf="selectBoxModel?.isRequired==false" class="formBuilder-select">
+    <p>{{selectBoxModel?.title}}</p>
+    <p>{{selectBoxModel?.description}}</p>
+    <select>
+        <option *ngFor="let item of selectBoxModel?.options" value="{{item.key}}">{{item.value}}</option>
+    </select>
+</div>

@@ -1,0 +1,11 @@
+<div [formGroup]="myForm" *ngIf="textBox.isRequired==true" class="formBuilder-textbox">
+<p>{{textBox.title}}</p>
+<p>{{textBox.description}}</p>
+<input type="{{textBox.textType}}" formControlName="{{textBox.controllerName}}" [required]="textBox.isRequired">
+</div>
+
+<div [formGroup]="myForm" *ngIf="textBox.isRequired==false" class="formBuilder-textbox">
+    <p>{{textBox.title}}</p>
+    <p>{{textBox.description}}</p>
+    <input type="{{textBox.textType}}">
+</div>

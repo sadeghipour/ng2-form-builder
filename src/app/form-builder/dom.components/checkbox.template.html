@@ -1,0 +1,15 @@
+<div [formGroup]="myForm" *ngIf="checkBoxModel?.isRequired==true" class="formBuilder-checkbox">
+<p>{{checkBoxModel?.title}}</p>
+<p>{{checkBoxModel?.description}}</p>
+    <p *ngFor="let item of checkBoxModel?.options">
+<input type="checkbox" formControlName="{{checkBoxModel?.controllerName}}" [required]="checkBoxModel.isRequired" name="{{checkBoxModel?.controllerName}}" value="{{item?.key}}" #item.selected [checked]="item.selected" [(ngModel)]="item.selected" (change)="onChange(item)">
+        {{item?.value}}
+    </p>
+</div>
+
+<div [formGroup]="myForm" *ngIf="checkBoxModel?.isRequired==false" class="formBuilder-checkbox">
+    <p>{{checkBoxModel?.title}}</p>
+    <p>{{checkBoxModel?.description}}</p>
+    <p *ngFor="let item of checkBoxModel?.options">
+    <input type="checkbox"  name="{{checkBoxModel?.title}}" value="{{item?.key}}" #item.selected [checked]="item.selected" [(ngModel)]="item.selected" (change)="onChange(item)"> {{item?.value}} </p>
+</div>

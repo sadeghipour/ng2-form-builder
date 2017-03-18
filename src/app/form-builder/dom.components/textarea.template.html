@@ -1,0 +1,11 @@
+<div [formGroup]="myForm" *ngIf="textArea.isRequired==true" class="formBuilder-textarea">
+<p>{{textArea.title}}</p>
+<p>{{textArea.description}}</p>
+    <textarea formControlName="{{textArea.controllerName}}" [required]="textArea.isRequired"></textarea>
+</div>
+
+<div [formGroup]="myForm" *ngIf="textArea.isRequired==false" class="formBuilder-textarea">
+    <p>{{textArea.title}}</p>
+    <p>{{textArea.description}}</p>
+    <textarea ></textarea>
+</div>
